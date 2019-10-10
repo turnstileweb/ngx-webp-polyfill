@@ -33,7 +33,7 @@ export function updateLibraryPackage(libraryPackageInfo: PackageInfo): Promise<v
           return reject(err);
         }
         return resolve();
-      }
+      },
     );
   });
 }
