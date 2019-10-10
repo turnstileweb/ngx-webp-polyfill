@@ -20,7 +20,15 @@
     ],
     "strictNullChecks": true,
     "noImplicitAny": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "paths": {
+      "ngx-webp-polyfill": [
+        "dist/ngx-webp-polyfill"
+      ],
+      "ngx-webp-polyfill/*": [
+        "dist/ngx-webp-polyfill/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

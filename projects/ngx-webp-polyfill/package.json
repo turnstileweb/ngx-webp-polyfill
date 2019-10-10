@@ -1,0 +1,10 @@
+{
+  "name": "ngx-webp-polyfill",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.9",
+    "@angular/core": "^8.2.9",
+    "webp-hero": "0.0.0-dev.24",
+    "p-queue": "^6.1.1"
+  }
+}
