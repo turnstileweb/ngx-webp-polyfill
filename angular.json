@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-webp-polyfill": {
+    "ngx-webp-polyfill-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-webp-polyfill",
+            "outputPath": "dist/ngx-webp-polyfill-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-webp-polyfill:build"
+            "browserTarget": "ngx-webp-polyfill-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-webp-polyfill:build:production"
+              "browserTarget": "ngx-webp-polyfill-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-webp-polyfill:build"
+            "browserTarget": "ngx-webp-polyfill-demo:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-webp-polyfill:serve"
+            "devServerTarget": "ngx-webp-polyfill-demo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-webp-polyfill:serve:production"
+              "devServerTarget": "ngx-webp-polyfill-demo:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ngx-webp-polyfill"
+  "defaultProject": "ngx-webp-polyfill-demo"
 }

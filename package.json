@@ -6,11 +6,32 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test ngx-webp-polyfill",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "cz": "git-cz",
+    "release:version:sync": "ts-node --project scripts/tsconfig.json scripts/sync-library-version.ts",
+    "release": "ts-node --project scripts/tsconfig.json scripts/release.ts",
+    "prebuild:library": "rimraf dist/ngx-webp-polyfill",
+    "build:library": "ng build ngx-webp-polyfill",
+    "prepackage:library": "yarn build:library && yarn package:readme",
+    "package:library": "cd dist/ngx-webp-polyfill && npm pack",
+    "package:publish": "ts-node --project scripts/tsconfig.json scripts/publish.ts",
+    "package:readme": "copy .\\README.md .\\dist\\ngx-webp-polyfill"
   },
   "private": false,
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -54,9 +75,11 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "prettier": "^1.18.2",
     "protractor": "~5.4.0",
+    "rimraf": "^3.0.0",
     "standard-version": "^7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.5.3"
   }
 }
