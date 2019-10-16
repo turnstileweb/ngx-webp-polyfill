@@ -1,0 +1,59 @@
+@import '../theme/variables';
+
+header {
+  background-color: $black;
+  color: $white;
+  padding: 10px 20px 10px 10px;
+  border-bottom: 1px solid $whitesmoke;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options {
+
+  padding: 0 0 20px 10px;
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    width: 40px;
+  }
+
+  .radio-button {
+    margin: 5px;
+  }
+}
+
+.error {
+  padding: 10px;
+  .detail {
+    padding: 7px;
+    background-color: $tangerine;
+    border: 1px solid $black;
+    color: $white;
+    font-style: italic;
+  }
+}
+
+.gallery {
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(367px, 1fr));
+  grid-gap: 0;
+
+  .thumbnail {
+
+    width: 100%;
+    height: auto;
+
+    &.as-background {
+      height: 267px;
+      display: inline-block;
+      background-size: cover;
+    }
+  }
+}
+

@@ -1,6 +1,17 @@
 {
   "name": "ngx-webp-polyfill",
   "version": "0.0.1",
+  "license": "MIT",
+  "author": "Alexis Bradley-Mills <alexis.bradleymills@gmail.com> (turnstileweb.com.au)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/turnstileweb/ngx-webp-polyfill.git"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "engineStrict": true,
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^8.2.9",
     "@angular/core": "^8.2.9",

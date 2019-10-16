@@ -1,1 +1,40 @@
-{{title}} works!
+<header>
+  <h1>Angular WebP Polyfill Demo</h1>
+  <a href="https://github.com/turnstileweb/ngx-webp-polyfill"><img src="/assets/GitHub-Mark-Light-32px.png"
+                                                                   alt="View on github" width="32" height="32px"/></a>
+</header>
+<div class="error" *ngIf="errorDetail | async as errorDetails">
+  <h3>Oops! There was a problem:</h3>
+  <p class="detail">{{errorDetails}}</p>
+  <p>Please <a (click)="fetchThumbnails()">retry</a>. If problems persist, tell us about it on <a href="https://github.com/turnstileweb/ngx-webp-polyfill/issues">github</a>!</p>
+</div>
+<ng-container class="gallery" *ngIf="thumbnails | async as displayedThumbnails">
+  <ng-container *ngIf="elementType | async as activeElementType">
+    <div class="options">
+      Polyfill applied as:
+      <mat-radio-group
+        class="radio-group"
+        aria-label="Select an option"
+        [value]="activeElementType"
+        (change)="changeElementStrategy($event)">
+        <mat-radio-button class="radio-button" [value]="ElementStrategy.IMAGE">Image</mat-radio-button>
+        <mat-radio-button class="radio-button" [value]="ElementStrategy.BACKGROUND">Background</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="gallery">
+      <ng-container *ngFor="let thumbnail of displayedThumbnails">
+        <ng-template [ngIf]="activeElementType === ElementStrategy.IMAGE">
+          <img [twWebpImage]="thumbnail.metaData.thumbnail_url"
+               [src]="thumbnail.metaData.thumbnail_url"
+               [alt]="thumbnail.metaData.author"
+               class="thumbnail"/>
+        </ng-template>
+        <ng-template [ngIf]="activeElementType === ElementStrategy.BACKGROUND">
+      <span
+        [twWebpBackground]="thumbnail.metaData.thumbnail_url"
+        class="thumbnail as-background"></span>
+        </ng-template>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>
