@@ -34,13 +34,13 @@ export function externalPolyfillFactory() {
 })
 export class NgxWebpPolyfillModule {
 
-  static forRoot(): ModuleWithProviders {
+  static forRoot(options?: WebpPolyfillOptions): ModuleWithProviders {
     return {
       ngModule: NgxWebpPolyfillModule,
       providers: [
         {
           provide: WEBP_POLYFILL_OPTIONS,
-          useValue: DEFAULT_WEBP_OPTIONS
+          useValue: options ? options: DEFAULT_WEBP_OPTIONS
         },
         {
           provide: WEBP_POLYFILL,

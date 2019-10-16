@@ -19,19 +19,27 @@ To allow the polyfill to be applied to images one-at-a-time (as enforced by `web
 
 ## Usage
 
-Import `NgxWebpPolyfillModule.forRoot()` into `AppModule`.
+### NgxWebpPolyfillModule.forRoot(options?: WebpPolyfillOptions)
+Import `NgxWebpPolyfillModule.forRoot(options?: WebpPolyfillOptions)` into `AppModule`.
 
+`WebpPolyfillOptions`
+- `applyPolyfill: (url: string) => boolean` (defaults to true) to conditionally apply the polyfill conditionally i.e. for specific browsers
 ```
 import { NgxWebpPolyfillModule } from 'ngx-webp-polyfill';
 
 @NgModule({
   imports: [
-    NgxWebpPolyfillModule.forRoot()
+    NgxWebpPolyfillModule.forRoot({
+        applyPolyfill: (url: string) => {            
+            return true; // specify some condition when to apply polyfill
+        }
+    })
   ]
 })
 export class AppModule { }
-
 ```
+
+### NgxWebpPolyfillModule.forChild()
 
 Import `NgxWebpPolyfillModule.forChild()` into your application child modules, where needed.
 
@@ -46,11 +54,12 @@ import { NgxWebpPolyfillModule } from 'ngx-webp-polyfill';
 export class MyFeatureModule { }
 ```
 
+### Template example
 Apply the polyfill directives in your template.
 ```
-  <img [appWebpImage]="myImageUrl" class="photo" [src]="myImageUrl" alt="My Image"/>
+  <img [twWebpImage]="myImageUrl" class="photo" [src]="myImageUrl" alt="My Image"/>
 
-  <div [appWebpBackground]="myImageUrl" style="width: 200px; height: 200px"></div>
+  <div [twWebpBackground]="myImageUrl" style="width: 200px; height: 200px"></div>
 
 ```
 

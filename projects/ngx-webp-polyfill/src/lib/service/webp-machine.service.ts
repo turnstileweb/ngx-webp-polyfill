@@ -39,8 +39,7 @@ export class WebpMachineService implements WebpAccess {
               .then((data: Uint8Array) => this.webpPolyFill.decode(data));
           }));
         }
-        return of(url)
-          .pipe(take(1));
+        return of(url);
       }),
       take(1)
     );
