@@ -1,6 +1,6 @@
 # Angular Webp Polyfill
 
-A Webp polyfill for Angular, using `webp-hero`. This module applies to polyfill as Angular Directives for:
+A Webp polyfill for Angular, using `webp-hero`. This module applies to polyfill as Angular Pipes/Directives for:
 1. Image elements
 2. Elements with a `background-image` style
 
@@ -55,12 +55,38 @@ export class MyFeatureModule { }
 ```
 
 ### Template example
-Apply the polyfill directives in your template.
+Apply the polyfill directives in your template with the following options.
+
+#### Pipes
+The pipes perform asynchronous logic; they return `Observable<string>` and need to be applied in combination with the `async` pipe.
+
+##### webpImage
+```
+  <img *ngIf="myImageUrl | webpImage | async as imagePipeTransform"
+       [src]="imagePipeTransform"
+       alt="My Image"
+       class="thumbnail"/>
+```
+Note: The use of `*ngIf` is required here as the `async` pipe will emit `null` as an initial value.
+
+##### webpBackground
+```
+  <div [style.background-image]="'url(' + myImageUrl + ')' | webpBackground | async"
+       style="width: 200px; height: 200px"></div>
+```
+
+#### Directives
+These directives are a less desirable options to their equivalent pipe.
+##### twWebpImage
+
 ```
   <img [twWebpImage]="myImageUrl" class="photo" [src]="myImageUrl" alt="My Image"/>
+```
 
+##### twWebpBackground
+
+```
   <div [twWebpBackground]="myImageUrl" style="width: 200px; height: 200px"></div>
-
 ```
 
 ## Contributing

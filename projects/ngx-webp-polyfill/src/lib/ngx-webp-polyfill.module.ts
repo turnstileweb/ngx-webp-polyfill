@@ -9,6 +9,8 @@ import {
 } from './service/webp-access';
 import { WebpMachineService } from './service/webp-machine.service';
 import { WebpMachine } from 'webp-hero';
+import { WebpImagePipe } from './pipe/webp-image.pipe';
+import { WebpBackgroundPipe } from './pipe/webp-background.pipe';
 
 export function polyfillServiceFactory(options: WebpPolyfillOptions, externalWebp: WebpExternalAccess) {
   const webpMachineService = new WebpMachineService(options, externalWebp);
@@ -23,13 +25,17 @@ export function externalPolyfillFactory() {
 @NgModule({
   declarations: [
     WebpImageDirective,
-    WebpBackgroundDirective
+    WebpBackgroundDirective,
+    WebpImagePipe,
+    WebpBackgroundPipe
   ],
   imports: [
   ],
   exports: [
     WebpBackgroundDirective,
-    WebpImageDirective
+    WebpImageDirective,
+    WebpImagePipe,
+    WebpBackgroundPipe
   ]
 })
 export class NgxWebpPolyfillModule {
