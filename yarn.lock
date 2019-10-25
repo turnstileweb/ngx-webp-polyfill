@@ -6750,6 +6750,13 @@ ng-packagr@^5.4.0:
     terser "^4.1.2"
     update-notifier "^3.0.0"
 
+ngx-webp-polyfill@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-webp-polyfill/-/ngx-webp-polyfill-0.0.2.tgz#0e5df82b1b035f9d29af86e6f58ed56c6d00d574"
+  integrity sha512-iBvDpCmR7p5xbqTitaYr/govmursIXH5iPDFjwtcBy0dVgOn6wf2PE0ApIgZlYfLHEaXXaJe83W8rZ9qIGMY9g==
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

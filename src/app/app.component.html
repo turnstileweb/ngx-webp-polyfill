@@ -17,22 +17,34 @@
         aria-label="Select an option"
         [value]="activeElementType"
         (change)="changeElementStrategy($event)">
-        <mat-radio-button class="radio-button" [value]="ElementStrategy.IMAGE">Image</mat-radio-button>
-        <mat-radio-button class="radio-button" [value]="ElementStrategy.BACKGROUND">Background</mat-radio-button>
+        <mat-radio-button class="radio-button" [value]="ElementStrategy.IMAGE_DIRECTIVE">Image Directive</mat-radio-button>
+        <mat-radio-button class="radio-button" [value]="ElementStrategy.IMAGE_PIPE">Image Pipe</mat-radio-button>
+        <mat-radio-button class="radio-button" [value]="ElementStrategy.BACKGROUND_DIRECTIVE">Background Directive</mat-radio-button>
+        <mat-radio-button class="radio-button" [value]="ElementStrategy.BACKGROUND_PIPE">Background Pipe</mat-radio-button>
       </mat-radio-group>
     </div>
     <div class="gallery">
       <ng-container *ngFor="let thumbnail of displayedThumbnails">
-        <ng-template [ngIf]="activeElementType === ElementStrategy.IMAGE">
+        <ng-template [ngIf]="activeElementType === ElementStrategy.IMAGE_DIRECTIVE">
           <img [twWebpImage]="thumbnail.metaData.thumbnail_url"
                [src]="thumbnail.metaData.thumbnail_url"
                [alt]="thumbnail.metaData.author"
                class="thumbnail"/>
         </ng-template>
-        <ng-template [ngIf]="activeElementType === ElementStrategy.BACKGROUND">
-      <span
-        [twWebpBackground]="thumbnail.metaData.thumbnail_url"
-        class="thumbnail as-background"></span>
+        <ng-template [ngIf]="activeElementType === ElementStrategy.IMAGE_PIPE">
+          <img *ngIf="thumbnail.metaData.thumbnail_url | webpImage | async as imagePipeTransform"
+               [src]="imagePipeTransform"
+               [alt]="thumbnail.metaData.author"
+               class="thumbnail"/>
+        </ng-template>
+        <ng-template [ngIf]="activeElementType === ElementStrategy.BACKGROUND_DIRECTIVE">
+          <span
+            [twWebpBackground]="thumbnail.metaData.thumbnail_url"
+            class="thumbnail as-background"></span>
+        </ng-template>
+        <ng-template [ngIf]="activeElementType === ElementStrategy.BACKGROUND_PIPE">
+          <span [style.background-image]="'url(' + thumbnail.metaData.thumbnail_url + ')' | webpBackground | async"
+                class="thumbnail as-background"></span>
         </ng-template>
       </ng-container>
     </div>
