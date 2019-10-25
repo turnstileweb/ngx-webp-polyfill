@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Directive, ElementRef, Inject, Input, Renderer2 } from '@angular/core';
 import { WEBP_POLYFILL, WebpAccess } from '../service/webp-access';
-import { catchError, tap } from 'rxjs/operators';
-import { EMPTY } from 'rxjs';
+import { catchError, take, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Directive({
   selector: '[twWebpImage]'
@@ -31,7 +31,7 @@ export class WebpImageDirective implements AfterViewInit {
         }),
         catchError((err: any) => {
           console.error(err);
-          return EMPTY;
+          return of(this.webpImage).pipe(take(1));
         })
       )
       .subscribe();
