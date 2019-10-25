@@ -19,7 +19,7 @@ const { identifier, name } = program.opts();
 
 releaseStandardVersion({
   commitAll: true,
-  prerelease: identifier ? identifier : '',
+  prerelease: identifier ? identifier : undefined,
   scripts: {
     postbump: 'yarn release:version:sync',
     precommit: `git add package.json projects/${name}/package.json`,
