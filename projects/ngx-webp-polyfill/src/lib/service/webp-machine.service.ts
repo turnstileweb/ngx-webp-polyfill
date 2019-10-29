@@ -7,9 +7,8 @@ import {
   WebpPolyfillOptions
 } from './webp-access';
 import PQueue from 'p-queue';
-import { Observable, of, ReplaySubject } from 'rxjs';
+import { from, Observable, of, ReplaySubject } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
-import { fromPromise } from 'rxjs/internal-compatibility';
 
 export class LoadingError extends Error {
 }
@@ -34,7 +33,7 @@ export class WebpMachineService implements WebpAccess {
     return this.hasWebpSupport.pipe(
       switchMap((hasBrowserSupport: boolean) => {
         if (!hasBrowserSupport && this.options.applyPolyfill(url)) {
-          return fromPromise(this.processingQueue.add(() => {
+          return from(this.processingQueue.add(() => {
             return this.loadBinaryData(url)
               .then((data: Uint8Array) => this.webpPolyFill.decode(data));
           }));
