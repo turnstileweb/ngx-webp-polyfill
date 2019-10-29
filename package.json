@@ -14,7 +14,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ngx-webp-polyfill-demo -c production",
     "test": "ng test ngx-webp-polyfill",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -26,7 +26,6 @@
     "build:library": "ng build ngx-webp-polyfill",
     "prepackage:library": "yarn build:library && yarn package:readme && yarn package:changelog",
     "package:library": "cd dist/ngx-webp-polyfill && npm pack",
-    "package:publish": "ts-node --project scripts/tsconfig.json scripts/publish.ts",
     "package:readme": "copy .\\README.md .\\dist\\ngx-webp-polyfill",
     "package:changelog": "copy .\\CHANGELOG.md .\\dist\\ngx-webp-polyfill"
   },
@@ -61,7 +60,7 @@
     "@angular/router": "~8.2.7",
     "classlist.js": "^1.1.20150312",
     "core-js": "^3.2.1",
-    "ngx-webp-polyfill": "^0.0.2",
+    "ngx-webp-polyfill": "^0.0.3",
     "p-queue": "^6.1.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

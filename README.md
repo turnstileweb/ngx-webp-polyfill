@@ -108,6 +108,10 @@ Or use your IDE, commits messages are linted!
 
 ## Release
 These instructions are for maintainers of this library, to release a new version:
+### Package
 1. Generate new version and tag with `yarn release && git push --follow-tags master`
 2. Builds and package the library `yarn package:library`
 3. Publish the library to NPM `cd dist/ngx-webp-polyfill && npm publish`
+
+### Demo
+1. To build the demo run `yarn build`
