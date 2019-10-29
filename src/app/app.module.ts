@@ -6,13 +6,17 @@ import { NgModule } from '@angular/core';
 import { NgxWebpPolyfillModule } from 'ngx-webp-polyfill';
 import { AppComponent } from './app.component';
 
+export function webpPolyfillOptions() {
+  return true;
+}
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgxWebpPolyfillModule.forRoot({
-      applyPolyfill: () => true,
+      applyPolyfill: webpPolyfillOptions,
     }),
     MatRadioModule,
   ],

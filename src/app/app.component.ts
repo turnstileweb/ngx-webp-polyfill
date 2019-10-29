@@ -6,10 +6,10 @@ import { PicsumService } from './service/picsum.service';
 import { Image } from './service/image';
 
 export enum ElementStrategy {
-  IMAGE_DIRECTIVE = 'image-directive',
   IMAGE_PIPE = 'image-pipe',
-  BACKGROUND_DIRECTIVE = 'background-directive',
   BACKGROUND_PIPE = 'background-pipe',
+  IMAGE_DIRECTIVE = 'image-directive',
+  BACKGROUND_DIRECTIVE = 'background-directive',
 }
 
 @Component({
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   ElementStrategy = ElementStrategy;
 
-  private elementStrategy = new BehaviorSubject<ElementStrategy>(ElementStrategy.IMAGE_DIRECTIVE);
+  private elementStrategy = new BehaviorSubject<ElementStrategy>(ElementStrategy.IMAGE_PIPE);
 
   get elementType(): Observable<ElementStrategy> {
     return this.elementStrategy.asObservable();
