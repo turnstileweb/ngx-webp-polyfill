@@ -21,6 +21,7 @@
     "commit": "git-cz",
     "release:version:sync": "ts-node --project scripts/tsconfig.json scripts/sync-library-version.ts",
     "release": "ts-node --project scripts/tsconfig.json scripts/release.ts -n ngx-webp-polyfill",
+    "release:alpha": "ts-node --project scripts/tsconfig.json scripts/release.ts -n ngx-webp-polyfill -i alpha",
     "prebuild:library": "rimraf dist/ngx-webp-polyfill",
     "build:library": "ng build ngx-webp-polyfill",
     "prepackage:library": "yarn build:library && yarn package:readme && yarn package:changelog",
