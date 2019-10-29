@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3-alpha.0](https://github.com/turnstileweb/ngx-webp-polyfill/compare/v0.0.2...v0.0.3-alpha.0) (2019-10-29)
+
+
+### Bug Fixes
+
+* **service:** actually apply polyfill in browser with no webp support ([c4b3b34](https://github.com/turnstileweb/ngx-webp-polyfill/commit/c4b3b340cbe3133e2aed83ea9eee49b2df7ac5dd))
+
 ### [0.0.2](https://github.com/turnstileweb/ngx-webp-polyfill/compare/v0.0.1...v0.0.2) (2019-10-25)
 
 
