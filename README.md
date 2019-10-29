@@ -29,12 +29,14 @@ Import `NgxWebpPolyfillModule.forRoot(options?: WebpPolyfillOptions)` into `AppM
 ```
 import { NgxWebpPolyfillModule } from 'ngx-webp-polyfill';
 
+export function webpPolyfillOptions(url: string) {
+  return true;
+}
+
 @NgModule({
   imports: [
     NgxWebpPolyfillModule.forRoot({
-        applyPolyfill: (url: string) => {            
-            return true; // specify some condition when to apply polyfill
-        }
+        applyPolyfill: webpPolyfillOptions
     })
   ]
 })
