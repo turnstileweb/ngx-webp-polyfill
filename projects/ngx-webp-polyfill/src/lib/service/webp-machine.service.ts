@@ -33,7 +33,7 @@ export class WebpMachineService implements WebpAccess {
   decode(url: string): Observable<string> {
     return this.hasWebpSupport.pipe(
       switchMap((hasBrowserSupport: boolean) => {
-        if (hasBrowserSupport && this.options.applyPolyfill(url)) {
+        if (!hasBrowserSupport && this.options.applyPolyfill(url)) {
           return fromPromise(this.processingQueue.add(() => {
             return this.loadBinaryData(url)
               .then((data: Uint8Array) => this.webpPolyFill.decode(data));
