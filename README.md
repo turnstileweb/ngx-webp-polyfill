@@ -4,6 +4,8 @@ A Webp polyfill for Angular, using `webp-hero`. This module applies to polyfill 
 1. Image elements
 2. Elements with a `background-image` style
 
+You can view a demo [here](http://webp.turnstileweb.com.au/).
+
 ## Installation
 NPM
 ```
