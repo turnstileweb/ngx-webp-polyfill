@@ -13,8 +13,8 @@
   "engineStrict": true,
   "private": false,
   "peerDependencies": {
-    "@angular/common": "^8.2.9",
-    "@angular/core": "^8.2.9",
+    "@angular/common": "^8.2.9 || ^9.0.0",
+    "@angular/core": "^8.2.9 || ^9.0.0",
     "webp-hero": "0.0.0-dev.24",
     "p-queue": "^6.1.1"
   }
