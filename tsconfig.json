@@ -27,6 +27,9 @@
       ],
       "ngx-webp-polyfill/*": [
         "dist/ngx-webp-polyfill/*"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
       ]
     }
   },

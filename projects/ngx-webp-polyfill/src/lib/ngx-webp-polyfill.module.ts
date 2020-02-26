@@ -40,7 +40,7 @@ export function externalPolyfillFactory() {
 })
 export class NgxWebpPolyfillModule {
 
-  static forRoot(options?: WebpPolyfillOptions): ModuleWithProviders {
+  static forRoot(options?: WebpPolyfillOptions): ModuleWithProviders<NgxWebpPolyfillModule> {
     return {
       ngModule: NgxWebpPolyfillModule,
       providers: [
@@ -61,7 +61,7 @@ export class NgxWebpPolyfillModule {
     };
   }
 
-  static forChild(): ModuleWithProviders {
+  static forChild(): ModuleWithProviders<NgxWebpPolyfillModule> {
     return {
       ngModule: NgxWebpPolyfillModule
     };
