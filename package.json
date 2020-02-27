@@ -24,7 +24,8 @@
     "release:alpha": "ts-node --project scripts/tsconfig.json scripts/release.ts -n ngx-webp-polyfill -i alpha",
     "prebuild:library": "rimraf dist/ngx-webp-polyfill",
     "build:library": "ng build ngx-webp-polyfill",
-    "prepackage:library": "yarn build:library && yarn package:readme && yarn package:changelog",
+    "build:library:prod": "ng build ngx-webp-polyfill -c production",
+    "prepackage:library": "yarn build:library:prod && yarn package:readme && yarn package:changelog",
     "package:library": "cd dist/ngx-webp-polyfill && npm pack",
     "package:readme": "copy .\\README.md .\\dist\\ngx-webp-polyfill",
     "package:changelog": "copy .\\CHANGELOG.md .\\dist\\ngx-webp-polyfill"
