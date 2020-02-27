@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/turnstileweb/ngx-webp-polyfill/compare/v0.0.3...v0.0.4) (2020-02-27)
+
+
+### Features
+
+* **angular-9:** add support for angular 9 ([610520b](https://github.com/turnstileweb/ngx-webp-polyfill/commit/610520bea5e7f33d0099396d35f7808c0f2b0b9c))
+
 ### [0.0.3](https://github.com/turnstileweb/ngx-webp-polyfill/compare/v0.0.3-alpha.1...v0.0.3) (2019-10-29)
 
 
