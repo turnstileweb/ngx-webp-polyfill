@@ -13,7 +13,7 @@ export enum ElementStrategy {
 }
 
 @Component({
-  selector: 'tw-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,11 +40,11 @@ export class AppComponent implements OnInit {
     this.fetchThumbnails();
   }
 
-  changeElementStrategy(change: MatRadioChange) {
+  changeElementStrategy(change: MatRadioChange): void {
     this.elementStrategy.next(change.value);
   }
 
-  fetchThumbnails() {
+  fetchThumbnails(): void {
     this.imageApi
       .thumbnails()
       .pipe(
