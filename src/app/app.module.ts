@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { NgxWebpPolyfillModule } from 'ngx-webp-polyfill';
 import { AppComponent } from './app.component';
 
-export function webpPolyfillOptions() {
+export function webpPolyfillOptions(): boolean {
   return true;
 }
 
