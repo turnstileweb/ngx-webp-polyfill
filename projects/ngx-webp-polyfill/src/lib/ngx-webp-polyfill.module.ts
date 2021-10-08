@@ -3,23 +3,25 @@ import { WebpImageDirective } from './directive/webp-image.directive';
 import { WebpBackgroundDirective } from './directive/webp-background.directive';
 import {
   DEFAULT_WEBP_OPTIONS, WEBP_POLYFILL, WEBP_POLYFILL_EXTERNAL,
-  WEBP_POLYFILL_OPTIONS,
+  WEBP_POLYFILL_OPTIONS, WebpAccess,
   WebpExternalAccess,
-  WebpPolyfillOptions
+  WebpPolyfillOptions,
 } from './service/webp-access';
 import { WebpMachineService } from './service/webp-machine.service';
 import { WebpMachine } from 'webp-hero';
 import { WebpImagePipe } from './pipe/webp-image.pipe';
 import { WebpBackgroundPipe } from './pipe/webp-background.pipe';
+import { Webp } from 'webp-hero/libwebp/dist/webp';
 
-export function polyfillServiceFactory(options: WebpPolyfillOptions, externalWebp: WebpExternalAccess) {
+export function polyfillServiceFactory(options: WebpPolyfillOptions, externalWebp: WebpExternalAccess): WebpAccess {
   const webpMachineService = new WebpMachineService(options, externalWebp);
   webpMachineService.init();
   return webpMachineService;
 }
 
-export function externalPolyfillFactory() {
-  return new WebpMachine();
+export function externalPolyfillFactory(): WebpMachine {
+  const webp = new Webp();
+  return new WebpMachine({webp});
 }
 
 @NgModule({
@@ -46,7 +48,7 @@ export class NgxWebpPolyfillModule {
       providers: [
         {
           provide: WEBP_POLYFILL_OPTIONS,
-          useValue: options ? options: DEFAULT_WEBP_OPTIONS
+          useValue: options ? options : DEFAULT_WEBP_OPTIONS
         },
         {
           provide: WEBP_POLYFILL,
