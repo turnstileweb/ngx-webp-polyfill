@@ -61,7 +61,7 @@ export class WebpMachineService implements WebpAccess {
 
     return Promise.all(testImageSources.map(testImage))
       .then((resultsOfTest: boolean[]) => {
-        return resultsOfTest.findIndex((resultOfTest: boolean) => !resultOfTest) < 0
+        return resultsOfTest.findIndex((resultOfTest: boolean) => !resultOfTest) < 0;
       });
   }
 
@@ -91,6 +91,6 @@ export class WebpMachineService implements WebpAccess {
       };
 
       xhr.send();
-    })
+    });
   }
 }
