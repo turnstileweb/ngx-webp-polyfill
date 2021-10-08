@@ -25,7 +25,7 @@ To allow the polyfill to be applied to images one-at-a-time (as enforced by `web
 Import `NgxWebpPolyfillModule.forRoot(options?: WebpPolyfillOptions)` into `AppModule`.
 
 `WebpPolyfillOptions`
-- `applyPolyfill: (url: string) => boolean` (defaults to true) to conditionally apply the polyfill conditionally i.e. for specific browsers
+- `applyPolyfill: (url: string) => boolean` (defaults to true) to apply the polyfill conditionally i.e. for specific browsers
 ```
 import { NgxWebpPolyfillModule } from 'ngx-webp-polyfill';
 

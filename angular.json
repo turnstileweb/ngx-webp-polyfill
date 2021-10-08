@@ -30,7 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "webp-hero/libwebp/dist/webp",
+              "pqueue"
+            ]
           },
           "configurations": {
             "production": {
