@@ -20,7 +20,9 @@
             "outputPath": "dist/ngx-webp-polyfill-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -34,16 +36,11 @@
             "allowedCommonJsDependencies": [
               "webp-hero/libwebp/dist/webp",
               "pqueue"
-            ]
+            ],
+            "preserveSymlinks": true
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -70,27 +67,28 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-webp-polyfill-demo:build"
+            "buildTarget": "ngx-webp-polyfill-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-webp-polyfill-demo:build:production"
+              "buildTarget": "ngx-webp-polyfill-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-webp-polyfill-demo:build"
+            "buildTarget": "ngx-webp-polyfill-demo:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -135,7 +133,7 @@
       "prefix": "tw",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-webp-polyfill/tsconfig.lib.json",
             "project": "projects/ngx-webp-polyfill/ng-package.json"
@@ -143,15 +141,21 @@
           "configurations": {
             "production": {
               "tsConfig": "projects/ngx-webp-polyfill/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-webp-polyfill/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-webp-polyfill/src/test.ts",
             "tsConfig": "projects/ngx-webp-polyfill/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-webp-polyfill/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         },
         "lint": {
@@ -168,5 +172,8 @@
         }
       }
     }},
-  "defaultProject": "ngx-webp-polyfill-demo"
+  "defaultProject": "ngx-webp-polyfill-demo",
+  "cli": {
+    "analytics": false
+  }
 }

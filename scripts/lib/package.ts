@@ -13,7 +13,7 @@ export function libraryPackagePath(): string {
 
 export function libraryPackage(): Promise<PackageInfo> {
   return new Promise((resolve, reject) => {
-    readFile(libraryPackagePath(), (err: NodeJS.ErrnoException, data: Buffer) => {
+    readFile(libraryPackagePath(), (err: NodeJS.ErrnoException | null, data: Buffer) => {
       if (err) {
         return reject(err);
       }
@@ -28,7 +28,7 @@ export function updateLibraryPackage(libraryPackageInfo: PackageInfo): Promise<v
     writeFile(
       libraryPackagePath(),
       JSON.stringify(libraryPackageInfo, null, 2),
-      (err: NodeJS.ErrnoException) => {
+      (err: NodeJS.ErrnoException | null) => {
         if (err) {
           return reject(err);
         }

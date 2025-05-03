@@ -1,21 +1,25 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { BehaviorSubject, EMPTY, Observable, Subject } from 'rxjs';
 import { catchError, debounceTime, tap } from 'rxjs/operators';
-import { MatRadioChange } from '@angular/material/radio';
+import { MatRadioChange, MatRadioModule } from '@angular/material/radio';
 import { PicsumService } from './service/picsum.service';
 import { Image } from './service/image';
-
+import { HttpClientModule } from '@angular/common/http';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { WebpBackgroundPipe, WebpImagePipe } from 'ngx-webp-polyfill';
 export enum ElementStrategy {
   IMAGE_PIPE = 'image-pipe',
-  BACKGROUND_PIPE = 'background-pipe',
-  IMAGE_DIRECTIVE = 'image-directive',
-  BACKGROUND_DIRECTIVE = 'background-directive',
+  BACKGROUND_PIPE = 'background-pipe'
 }
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, MatRadioModule, HttpClientModule, NgFor, NgIf, AsyncPipe, WebpBackgroundPipe, WebpImagePipe],
+  providers: [PicsumService],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {

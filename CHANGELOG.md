@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.0.0-alpha.0](https://github.com/turnstileweb/ngx-webp-polyfill/compare/v0.0.5...v17.0.0-alpha.0) (2025-05-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **angular17:** Upgrade to Angular 17 and utilise standalone components. Removed library directives
+in favour of pipes.
+
+### Features
+
+* **angular17:** release for angular 17 ([5cc82b2](https://github.com/turnstileweb/ngx-webp-polyfill/commit/5cc82b203450b4e239d4fd0aafb4d89a81493cf6))
+
 ### [0.0.5](https://github.com/turnstileweb/ngx-webp-polyfill/compare/v0.0.4...v0.0.5) (2021-10-08)
 
 

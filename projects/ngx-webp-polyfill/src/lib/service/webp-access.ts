@@ -12,15 +12,19 @@ export interface WebpAccess {
 export const WEBP_POLYFILL = new InjectionToken<WebpAccess>('WEBP_POLYFILL');
 
 /**
+ * processingConcurrency
+ *  - image processing concurrency (default: 1).
  * applyPolyfill
  *  - option to configure when to apply polyfill
  *  - example: () => /msie\s|trident\/|edge\//i.test(window.navigator.userAgent)
  */
 export interface WebpPolyfillOptions {
+  processingConcurrency: number;
   applyPolyfill: (url: string) => boolean;
 }
 
 export const DEFAULT_WEBP_OPTIONS: WebpPolyfillOptions = {
+  processingConcurrency: 1,
   applyPolyfill: () => true
 };
 

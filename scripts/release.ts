@@ -1,9 +1,9 @@
-import * as program from 'commander';
-
+import { Command } from 'commander';
 const releaseStandardVersion = require('standard-version');
 
+const program = new Command();
+
 program
-  .version('0.0.1')
   .option('-n, --name [name]', 'Package name', '')
   .option('-i, --identifier [identifier]', 'Release identifier', '')
   .parse(process.argv);
@@ -21,7 +21,7 @@ releaseStandardVersion({
   commitAll: true,
   prerelease: identifier ? identifier : undefined,
   scripts: {
-    postbump: 'yarn release:version:sync',
+    postbump: 'npm run release:version:sync',
     precommit: `git add package.json projects/${name}/package.json`,
   },
 }).catch((err: Error) => {

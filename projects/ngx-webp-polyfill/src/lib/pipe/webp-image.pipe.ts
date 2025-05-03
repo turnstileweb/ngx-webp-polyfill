@@ -1,10 +1,12 @@
 import { Inject, Pipe, PipeTransform } from '@angular/core';
-import { WEBP_POLYFILL, WebpAccess } from '../service/webp-access';
 import { Observable, of } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
 
+import { WEBP_POLYFILL, WebpAccess } from '../service/webp-access';
+
 @Pipe({
-  name: 'webpImage'
+  name: 'webpImage',
+  standalone: true
 })
 export class WebpImagePipe implements PipeTransform {
 
