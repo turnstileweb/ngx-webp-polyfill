@@ -1,6 +1,7 @@
-import * as program from 'commander';
-
+import { Command } from 'commander';
 const releaseStandardVersion = require('standard-version');
+
+const program = new Command();
 
 program
   .option('-n, --name [name]', 'Package name', '')

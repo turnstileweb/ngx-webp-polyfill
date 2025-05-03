@@ -80,6 +80,7 @@
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^20.11.20",
     "codelyzer": "^6.0.2",
+    "commander": "^13.1.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "9.0.11",
