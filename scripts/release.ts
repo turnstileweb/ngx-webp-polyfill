@@ -21,7 +21,7 @@ releaseStandardVersion({
   commitAll: true,
   prerelease: identifier ? identifier : undefined,
   scripts: {
-    postbump: 'yarn release:version:sync',
+    postbump: 'npm run release:version:sync',
     precommit: `git add package.json projects/${name}/package.json`,
   },
 }).catch((err: Error) => {

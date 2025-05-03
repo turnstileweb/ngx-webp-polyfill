@@ -1,11 +1,14 @@
 import { Inject, Pipe, PipeTransform } from '@angular/core';
-import { WEBP_POLYFILL, WebpAccess } from '../service/webp-access';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+
+import { WEBP_POLYFILL, WebpAccess } from '../service/webp-access';
+
 
 @Pipe({
-  name: 'webpBackground'
+  name: 'webpBackground',
+  standalone: true,
 })
 export class WebpBackgroundPipe implements PipeTransform {
 

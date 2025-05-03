@@ -10,10 +10,10 @@ import { Image, ImageMetaData } from './image';
 export class PicsumService {
   constructor(private httpClient: HttpClient) {}
 
-  thumbnails(): Observable<Array<Image>> {
-    return this.httpClient.get('https://picsum.photos/v2/list?page=4&limit=8').pipe(
+  thumbnails(): Observable<Image[]> {
+    return this.httpClient.get<ImageMetaData[]>('https://picsum.photos/v2/list?page=4&limit=8').pipe(
       map(
-        (response: Array<ImageMetaData>): Array<Image> => {
+        (response: ImageMetaData[]): Image[] => {
           return response.map(
             (image: ImageMetaData): Image => {
               return new Image({

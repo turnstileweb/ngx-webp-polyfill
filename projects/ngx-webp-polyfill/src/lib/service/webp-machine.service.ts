@@ -8,7 +8,7 @@ import {
 } from './webp-access';
 import PQueue from 'p-queue';
 import { from, Observable, of, ReplaySubject } from 'rxjs';
-import { switchMap, take } from 'rxjs/operators';
+import { map, switchMap, take } from 'rxjs/operators';
 
 export class LoadingError extends Error {
 }
@@ -16,12 +16,13 @@ export class LoadingError extends Error {
 @Injectable()
 export class WebpMachineService implements WebpAccess {
 
-  private hasWebpSupport = new ReplaySubject<boolean>();
+  private hasWebpSupport = new ReplaySubject<boolean>(1);
 
-  private processingQueue = new PQueue({ concurrency: 1 });
+  private processingQueue: PQueue;
 
   constructor(@Inject(WEBP_POLYFILL_OPTIONS) private options: WebpPolyfillOptions,
               @Inject(WEBP_POLYFILL_EXTERNAL) private webpPolyFill: WebpExternalAccess) {
+    this.processingQueue = new PQueue({ concurrency: options.processingConcurrency });
   }
 
   init(): void {
@@ -36,7 +37,7 @@ export class WebpMachineService implements WebpAccess {
           return from(this.processingQueue.add(() => {
             return this.loadBinaryData(url)
               .then((data: Uint8Array) => this.webpPolyFill.decode(data));
-          }));
+          })).pipe(map((s) => s ? s : url));
         }
         return of(url);
       }),

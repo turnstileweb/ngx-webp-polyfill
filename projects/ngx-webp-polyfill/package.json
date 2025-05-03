@@ -1,6 +1,6 @@
 {
   "name": "ngx-webp-polyfill",
-  "version": "0.0.5",
+  "version": "17.0.0",
   "license": "MIT",
   "author": "Alexis Bradley-Mills <alexis.bradleymills@gmail.com> (turnstileweb.com.au)",
   "repository": {
@@ -8,17 +8,17 @@
     "url": "https://github.com/turnstileweb/ngx-webp-polyfill.git"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=20.0.0"
   },
-  "engineStrict": true,
+  "sideEffects": false,
   "private": false,
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": "^8.2.9 || ^9.0.0 || ^10.0.0",
-    "@angular/core": "^8.2.9 || ^9.0.0 || ^10.0.0",
-    "webp-hero": "0.0.0-dev.24",
-    "p-queue": "^6.6.1"
+    "@angular/common": "^16.0.0 || ^17.0.0",
+    "@angular/core": "^16.0.0 || ^17.0.0",
+    "p-queue": "^8.0.1",
+    "webp-hero": "0.0.2"
   }
 }
