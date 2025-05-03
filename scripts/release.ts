@@ -3,7 +3,6 @@ import * as program from 'commander';
 const releaseStandardVersion = require('standard-version');
 
 program
-  .version('0.0.1')
   .option('-n, --name [name]', 'Package name', '')
   .option('-i, --identifier [identifier]', 'Release identifier', '')
   .parse(process.argv);
